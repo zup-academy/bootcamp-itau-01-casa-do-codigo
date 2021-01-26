@@ -1,7 +1,7 @@
 package br.com.zup.casadocodigo.autores;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +17,15 @@ public class CadastraAutorController {
     @Autowired
     private AutorRepository autorRepository;
 
-    // GET => Obter algum dado (Consultar)
-    // POST => Cadastrar/Salvar/Enviar algum dado
-
     @PostMapping
-    public void cadastrar(@RequestBody @Valid NovoAutorRequest requisicao) {
+    public ResponseEntity<Object> cadastrar(@RequestBody @Valid NovoAutorRequest requisicao) {
 
         Autor autor = requisicao.paraAutor();
 
         System.out.println(autor);
 
         autorRepository.save(autor);
+
+        return ResponseEntity.ok().build();
     }
 }
