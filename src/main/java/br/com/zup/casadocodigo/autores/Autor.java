@@ -27,8 +27,6 @@ public class Autor {
     private String descricao;
     private LocalDateTime criadoEm = LocalDateTime.now(); // Instante de criacao
 
-    private Boolean ehAdmin = Boolean.FALSE;
-
     public Autor() { }
 
     public Autor(String nome, String email, String descricao) {
@@ -51,10 +49,6 @@ public class Autor {
 
     public LocalDateTime getCriadoEm() {
         return criadoEm;
-    }
-
-    public Boolean getEhAdmin() {
-        return ehAdmin;
     }
 
     @Override
